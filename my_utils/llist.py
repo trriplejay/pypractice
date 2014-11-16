@@ -135,7 +135,7 @@ class llist(object):
             #   quicksort
             #   bubblesort
             #   insertion sort
-            #   bogosort!
+            #   bogosort! ok not really... maybe with a forced size limit
 
     def mergesort(self, a, b):
 
@@ -153,7 +153,6 @@ class llist(object):
 
     def merge(self, a, b):
         # iterate over a and b, and return a single list in order
-        # really want this to sort in-place if possible...
         #print "merging ",
         #self.print_list(a)
         #print " and ",
@@ -207,11 +206,12 @@ class llist(object):
             count += 1
             #print str(count) + " merge step chose: " + str(final_index.data)
 
-        #print "result: ",
-        #self.print_list(final_head)
         return final_head
 
     def print_list(self, curr=None):
+        """
+        print the list formatted to look like a real python list
+        """
         if not self.has_cycle():
             if curr is None:
                 curr = self.head
